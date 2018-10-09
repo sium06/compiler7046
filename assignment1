@@ -1,0 +1,113 @@
+/*
+ * To print keyword,identifier,operator,value,others from a file.
+ */
+
+
+package assignment1;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+public class Assignment1 {
+
+   
+    public static void main(String[] args) {
+
+        String[] keyword = {"int", "float", "if", "else"};
+        String[] identifier = {"a", "b", "c", "d", "e"};
+        String[] operator = {"+", "-", "*", "/", "<", ">", "(", ")", "="};
+        String[] value = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "0"};
+        String[] others = {";", ",", "||", "&&", "^"};
+
+        ArrayList<String> a = new ArrayList<String>();
+        ArrayList<String> b = new ArrayList<String>();
+        ArrayList<String> c = new ArrayList<String>();
+        ArrayList<String> d = new ArrayList<String>();
+        ArrayList<String> e = new ArrayList<String>();
+
+        System.out.println("Enter the file name:for only here enter->sj.txt");
+
+        Scanner x = new Scanner(System.in);
+        String y = x.nextLine();
+        String z = "";
+        try {
+
+            Scanner input = new Scanner(new File("" + kk));
+
+            while (input.hasNext()) {
+
+                z += input.nextLine() + " ";
+
+            }
+
+            input.close();
+
+        } catch (FileNotFoundException ex) {
+
+            System.out.println(ex.getMessage() + "the file not found...");
+            System.exit(0);
+
+        }
+
+        String[] sentence = b.split(" ");
+        for (String word : sentence) {
+            System.out.println(word);
+            for (int i = 0; i < datatype.length; i++) {
+                if (word.equals(datatype[i])) {
+
+                    a.add(word);
+                }
+
+            }
+            for (int i = 0; i < identifier.length; i++) {
+                if (word.equals(identifier[i])) {
+
+                    b.add(word);
+                }
+            }
+
+            for (int i = 0; i < operator.length; i++) {
+                if (word.equals(operator[i])) {
+
+                    c.add(word);
+                }
+            }
+
+            for (int i = 0; i < value.length; i++) {
+                if (word.equals(value[i])) {
+
+                    d.add(word);
+                }
+            }
+            for (int i = 0; i < others.length; i++) {
+                if (word.equals(others[i])) {
+
+                    e.add(word);
+                }
+            }
+
+        }
+
+        System.out.println("keyword : " + a + ",");
+        System.out.println("identifier : " + b + ",");
+        System.out.println("operator : " + c + ",");
+        System.out.println("value : " + d + ",");
+        System.out.println("others : " + e + ",");
+        
+    }
+
+}
+
+
+/*
+*Output:
+
+*datatype: int, float, if, else
+*identifier: a, b, c, d, e
+*operators: +, -, =, >
+*value: 5, 6, 2.0, 6.0
+*others: ,, ;, (, ), {, }
+*/
